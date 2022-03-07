@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 /**
  * @author TaeWK
  */
@@ -27,7 +28,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser(User.builder()
                         .username("admin")
                         .password(passwordEncoder().encode("3333"))
-                        .roles("ADMIN"));
+                        .roles("ADMIN"))
+                .withUser(User.builder()
+                        .username("user3")
+                        .password(passwordEncoder().encode("4444"))
+                        .roles("USER"));
+
     }
 
     @Bean
